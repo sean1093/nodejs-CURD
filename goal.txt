@@ -1,0 +1,6 @@
+簡易會員登入系統
+1. login之後顯示你的個人資訊
+2. 註冊新會員，檢查重複的id
+3. 如果是admin 可以看所有會員資料
+
+CRUD: Create、Read、Update、Delete
