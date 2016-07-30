@@ -68,7 +68,7 @@ router.get('/query', function(req, res) {
 	console.log('query!');
   console.log('id: '+req.query.id);
   // console.log('id: '+req.params.id);
-  if(req.query.id===null || req.query.id===undefined){
+  // if(req.query.id===null || req.query.id===undefined){
     User.find(function(err, users) {
       console.log("[find]");
       if (!err){ 
@@ -80,24 +80,24 @@ router.get('/query', function(req, res) {
           res.send(users); 
       } else {throw err;}
     });   
-  }
-  else{
-    User.findById( req.query.id, function ( err, users ){
-      console.log("[findById]");
-      // if (!err){ 
+// }
+  // else{
+  //   User.findById( req.query.id, function ( err, users ){
+  //     console.log("[findById]");
+  //     // if (!err){ 
         
-        console.log(users);
-          for(var idx in users){
-            console.log(users[idx].name);
-          }
-          res.send(users); 
-      // } 
-      // else {
-      //   throw err;
-      // }
+  //       console.log(users);
+  //         for(var idx in users){
+  //           console.log(users[idx].name);
+  //         }
+  //         res.send(users); 
+  //     // } 
+  //     // else {
+  //     //   throw err;
+  //     // }
 
-    }); 
-  }
+  //   }); 
+  // }
   //   console.log("find without id");
    
 

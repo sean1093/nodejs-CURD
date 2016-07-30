@@ -55,25 +55,52 @@ function sumbit(){
 }
 
 function query(id) {
-	if (id===undefined) {
-		id = document.getElementById("id").value;
-	}
+	// if (id===undefined) {
+	id = document.getElementById("id").value;
+	// }
 	console.log("id:"+id);
 	var data={};
 	data.id = id;
 	$.ajax({
 		type: 'get',
-		data: data,
+		// data: data,
         contentType: 'application/json',
         url: 'http://localhost:8000/query',						
         success: function(data) {
-				console.log('success');
-            	console.log(data);
-        return data;
+			console.log('success');
+        	console.log(data);
+			var table = document.getElementById("userTable");
+			var startRow = 1;
+			deleteTable("userTable", startRow);
+        	for (var idx in data) {
+        		var row = table.insertRow(startRow);
+        		var tableName = row.insertCell(0);
+				var tableId = row.insertCell(1);
+				var tablePassword = row.insertCell(2);
+				var tableEmail = row.insertCell(3);
+        		
+        		tableName.innerHTML = data[idx].name;
+				tableId.innerHTML = data[idx].id;
+				tablePassword.innerHTML = data[idx].password;
+				tableEmail.innerHTML = data[idx].email;
+				startRow++;
+        	}
+
+        	return data;
             
         },
         error: function (ajaxContext) {
         	console.log(ajaxContext.responseText);
     	}
     });
+}
+
+function deleteTable(tableId, startRow){
+	var table = document.getElementById(tableId);
+	var tableRows = table.getElementsByTagName('tr');
+	var rowCount = tableRows.length;
+	for (var x=rowCount-1; x>0; x--) {
+	   table.deleteRow(x);
+	}
+
 }

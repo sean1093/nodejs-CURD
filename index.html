@@ -4,15 +4,31 @@
 		<title></title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.js"></script>
 		<script src="/scripts/controller.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	</head>
 	<body>
-		<h1>Sign in!</h1>
+		<h1>Users</h1>
+		<h2>Sign in!</h2>
 			Name:<input id="name"></input><br>
 			Account:<input id="id"></input><br>
 			Password:<input id="pwd"></input><br>
 			Email:<input id="email"></input><br>
-
 		<button onclick="sumbit()">Sumbit!</button>
+
+
+
+		<h1>Admin</h1>
+		<h2>Search users</h2>
 		<button onclick="query()">Query!</button>
+		<button onclick="deleteTable('userTable',1)">Clean!</button>
+		<table class="table" id="userTable">
+			<tr>
+				<th>Name</th>
+				<th>Account</th>
+				<th>Password</th>
+				<th>Email</th>
+			</tr>
+		</table>
 	</body>
 </html>
