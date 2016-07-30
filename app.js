@@ -110,15 +110,27 @@ router.get('/query', function(req, res) {
 
 
 //Delete
-router.post('/delete', function(req, res) {
+router.get('/delete', function(req, res) {
   console.log('delete!');
-  // console.log('id: '+req.query.id);
+  console.log('id: '+req.query.target);
   // if(req.query.id===null || req.query.id===undefined){
   //   console.log("find without id");
-  User.findById( req.params.id, function ( err, users ){
-    users.remove( function ( err, users ){
-      res.redirect( '/' );
-    });
+  User.findById( req.query.target, function ( err, users ){
+    if (!err){ 
+      console.log("get target user: "+ req.query.target);
+     users.remove( function ( err, users ){
+      if (!err){ 
+        console.log("Delete user: "+ req.query.target);
+      }
+      else{
+        console.log("err: "+err);
+      }
+    });     
+    }
+    else{
+        console.log("err: "+err);
+      }
+
   });   
 
 });

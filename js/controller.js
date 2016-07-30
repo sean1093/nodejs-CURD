@@ -95,6 +95,24 @@ function query(id) {
     });
 }
 
+
+function deleteUser(){
+	var target = document.getElementById("deleteId").value;
+	console.log("id:"+target);
+	var data={};
+	data.target = target;
+	$.ajax({
+		type: 'get',
+		data: data,
+        contentType: 'application/json',
+        url: 'http://localhost:8000/delete',						
+        success: function(data) {
+            console.log('success');
+            console.log(data);
+        }
+    });
+}
+
 function deleteTable(tableId, startRow){
 	var table = document.getElementById(tableId);
 	var tableRows = table.getElementsByTagName('tr');
