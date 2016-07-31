@@ -16,10 +16,11 @@ mongoose.connect('mongodb://localhost/testDB',function(err) {
 //schema
 var UserSchema = mongoose.Schema(
   {
-    id:        { type: String, unique: true },
+    id:   { type: String, unique: true },
     name:      { type: String },  
     password:  { type: String },
     email:     { type: String },
+    role:      { type: String },
     createDt:  { type: Date },
     updateDt:  { type: Date }
   }
@@ -42,9 +43,12 @@ router.get('/insert', function(req, res) {
    console.log('pwd: '+req.query.pwd);
    var newUser = new User({
       name: req.query.name,
-      id: req.query.id,
+      account: req.query.id,
       password: req.query.pwd,
-      email: req.query.email
+      email: req.query.email,
+      role: 'n',
+      createDt: new Date(),
+      updateDt: new Date()
    });
 
    newUser.save(function(err){
@@ -112,26 +116,33 @@ router.get('/query', function(req, res) {
 //Delete
 router.get('/delete', function(req, res) {
   console.log('delete!');
-  console.log('id: '+req.query.target);
+  console.log('account: '+req.query.target);
   // if(req.query.id===null || req.query.id===undefined){
   //   console.log("find without id");
-  User.findById( req.query.target, function ( err, users ){
-    if (!err){ 
-      console.log("get target user: "+ req.query.target);
-     users.remove( function ( err, users ){
-      if (!err){ 
-        console.log("Delete user: "+ req.query.target);
-      }
-      else{
-        console.log("err: "+err);
-      }
-    });     
-    }
-    else{
-        console.log("err: "+err);
-      }
+  //   
+  
+    User.find({'id':req.query.target}).remove(function(err) {
+            if (err)
+                console.log("Error while deleting " + err.message);
+        });
 
-  });   
+  // User.findById( req.query.target, function ( err, users ){
+  //   if (!err){ 
+  //     console.log("get target user: "+ req.query.target);
+  //    users.remove( function ( err, users ){
+  //     if (!err){ 
+  //       console.log("Delete user: "+ req.query.target);
+  //     }
+  //     else{
+  //       console.log("err: "+err);
+  //     }
+  //   });     
+  //   }
+  //   else{
+  //       console.log("err: "+err);
+  //     }
+
+  // });   
 
 });
 

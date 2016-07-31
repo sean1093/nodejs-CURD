@@ -78,11 +78,17 @@ function query(id) {
 				var tableId = row.insertCell(1);
 				var tablePassword = row.insertCell(2);
 				var tableEmail = row.insertCell(3);
+				var tableRole = row.insertCell(4);
+				var tableCDate = row.insertCell(5);
+				var tableUDate = row.insertCell(6);
         		
         		tableName.innerHTML = data[idx].name;
 				tableId.innerHTML = data[idx].id;
 				tablePassword.innerHTML = data[idx].password;
 				tableEmail.innerHTML = data[idx].email;
+				tableRole.innerHTML = data[idx].role;
+				tableCDate.innerHTML = data[idx].createDt;
+				tableUDate.innerHTML = data[idx].updateDt;
 				startRow++;
         	}
 
