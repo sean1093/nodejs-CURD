@@ -43,7 +43,7 @@ router.get('/insert', function(req, res) {
    console.log('pwd: '+req.query.pwd);
    var newUser = new User({
       name: req.query.name,
-      account: req.query.id,
+      id: req.query.id,
       password: req.query.pwd,
       email: req.query.email,
       role: 'n',
