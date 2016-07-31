@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost/testDB',function(err) {
 //schema
 var UserSchema = mongoose.Schema(
   {
-    id:   { type: String, unique: true },
+    id:   { type: String, require: true, unique: true },
     name:      { type: String },  
     password:  { type: String },
     email:     { type: String },
@@ -41,6 +41,7 @@ router.get('/insert', function(req, res) {
    console.log('name: '+req.query.name);
    console.log('id: '+req.query.id);
    console.log('pwd: '+req.query.pwd);
+
    var newUser = new User({
       name: req.query.name,
       id: req.query.id,
