@@ -116,34 +116,17 @@ router.get('/query', function(req, res) {
 
 //Delete
 router.get('/delete', function(req, res) {
-  console.log('delete!');
-  console.log('account: '+req.query.target);
-  // if(req.query.id===null || req.query.id===undefined){
-  //   console.log("find without id");
-  //   
-  
-    User.find({'id':req.query.target}).remove(function(err) {
-            if (err)
-                console.log("Error while deleting " + err.message);
-        });
-
-  // User.findById( req.query.target, function ( err, users ){
-  //   if (!err){ 
-  //     console.log("get target user: "+ req.query.target);
-  //    users.remove( function ( err, users ){
-  //     if (!err){ 
-  //       console.log("Delete user: "+ req.query.target);
-  //     }
-  //     else{
-  //       console.log("err: "+err);
-  //     }
-  //   });     
-  //   }
-  //   else{
-  //       console.log("err: "+err);
-  //     }
-
-  // });   
+  console.log('delete! '+req.query.target);
+  var target = req.query.target;
+  if(target!==null && target!==undefined){
+    User.find({'id':target}).remove(function(err) {
+      if (err)
+        console.log("Error while deleting " + err.message);
+    });
+  }
+  else{
+    console.log("User "+target+" not exist");
+  }   
 
 });
 
