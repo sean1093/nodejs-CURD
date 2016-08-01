@@ -55,9 +55,7 @@ function sumbit(){
 }
 
 function query(id) {
-	// if (id===undefined) {
 	id = document.getElementById("id").value;
-	// }
 	console.log("id:"+id);
 	var data={};
 	data.id = id;
@@ -104,6 +102,7 @@ function query(id) {
 
 function deleteUser(){
 	var target = document.getElementById("deleteId").value;
+	document.getElementById("deleteId").value = null;
 	console.log("id:"+target);
 	var data={};
 	data.target = target;
@@ -113,11 +112,13 @@ function deleteUser(){
         contentType: 'application/json',
         url: 'http://localhost:8000/delete',						
         success: function(data) {
-            console.log('success');
+            console.log('delete user success');
             console.log(data);
+            	
         }
     });
 }
+
 
 function deleteTable(tableId, startRow){
 	var table = document.getElementById(tableId);

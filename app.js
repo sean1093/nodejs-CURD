@@ -76,8 +76,7 @@ router.get('/query', function(req, res) {
   // if(req.query.id===null || req.query.id===undefined){
     User.find(function(err, users) {
       console.log("[find]");
-      if (!err){ 
-        
+      if (!err){       
         console.log(users);
           for(var idx in users){
             console.log(users[idx].name);
@@ -119,13 +118,26 @@ router.get('/delete', function(req, res) {
   console.log('delete! '+req.query.target);
   var target = req.query.target;
   if(target!==null && target!==undefined){
-    User.find({'id':target}).remove(function(err) {
-      if (err)
-        console.log("Error while deleting " + err.message);
+
+    // User.find({'id':target}).remove(function(err) {
+    //   if (err)
+    //     console.log("Error while deleting " + err.message);
+    // });
+    User.find({'id':target},function(err, users) {
+      console.log(users);
+      if(users.length===0){
+        console.log("User "+target+" not exist");
+      }
+      else{
+        users[0].remove(function(err) {
+          if (err)
+          console.log("Error while deleting " + err.message);
+        });
+      }    
     });
   }
   else{
-    console.log("User "+target+" not exist");
+    console.log("User is null);
   }   
 
 });
