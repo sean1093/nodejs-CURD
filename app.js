@@ -123,6 +123,8 @@ router.get('/delete', function(req, res) {
     //   if (err)
     //     console.log("Error while deleting " + err.message);
     // });
+    // 
+  
     User.find({'id':target},function(err, users) {
       console.log(users);
       if(users.length===0){
@@ -137,9 +139,8 @@ router.get('/delete', function(req, res) {
     });
   }
   else{
-    console.log("User is null);
-  }   
-
+    console.log("User is null");
+  }
 });
 
 
