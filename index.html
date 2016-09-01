@@ -5,37 +5,103 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.js"></script>
 		<script src="/scripts/controller.js"></script>
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	</head>
 	<body>
-		<h1>Users</h1>
-		<h2>Sign in!</h2>
-			Name:<input id="name"></input><br>
-			Account:<input id="id"></input><br>
-			Password:<input id="pwd"></input><br>
-			Email:<input id="email"></input><br>
-		<button onclick="sumbit()">Sumbit!</button>
+	<nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar">
+	        <div class="container">
+
+            <!--Collapse content-->
+            <div class="collapse navbar-toggleable-xs" id="collapseEx">
+                <!--Navbar Brand-->
+                <a class="navbar-brand" href="#" target="_blank">sean1093</a>
+                <!--Links-->
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <!--Search form-->
+                <form class="form-inline">
+                    <input class="form-control" type="text" placeholder="Search">
+                </form>
+            </div>
+            <!--/.Collapse content-->
+
+        </div>
+
+    </nav>
+
+    <nav class="navbar navbar-fixed-top navbar-light bg-faded">
+    	<div class="container">
+	  		<a class="navbar-brand" href="#">Navbar</a>
+	  		<ul class="nav navbar-nav">
+		    	<li class="nav-item active">
+		      		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		    	</li>
+		    	<li class="nav-item">
+		      		<a class="nav-link" href="#">Features</a>
+		    	</li>
+		    	<li class="nav-item">
+		      		<a class="nav-link" href="#">Pricing</a>
+		    	</li>
+		    	<li class="nav-item">
+		      		<a class="nav-link" href="#">About</a>
+		    	</li>
+	  		</ul>
+	  		<form class="form-inline pull-xs-right">
+	    		<input class="form-control" type="text" placeholder="Search">
+	    		<button class="btn btn-outline-success" type="submit">Search</button>
+	  		</form>
+  		</div>
+        <!--/.Collapse content-->
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<br>
+			<h1>Users</h1>
+			<h2>Sign in!</h2>
+				Name:<input id="name"></input><br>
+				Account:<input id="id"></input><br>
+				Password:<input id="pwd"></input><br>
+				Email:<input id="email"></input><br>
+			<button onclick="sumbit()">Sumbit!</button>
 
 
 
-		<h1>Admin</h1>
-		<h2>Search users</h2>
-		<button onclick="query()">Query!</button>
-		<button onclick="deleteTable('userTable',1)">Clean!</button>
-		<table class="table" id="userTable">
-			<tr>
-				<th>Name</th>
-				<th>Account</th>
-				<th>Password</th>
-				<th>Email</th>
-				<th>Role</th>
-				<th>Create Date</th>
-				<th>Update Date</th>
-			</tr>
-		</table>
-		<h2>Delete users</h2>
-		Account:<input id="deleteId"></input><br>
-		<button onclick="deleteUser()">Delete User!</button>
+			<h1>Admin</h1>
+			<h2>Search users</h2>
+			<button onclick="query()">Query!</button>
+			<button onclick="deleteTable('userTable',1)">Clean!</button>
+			<table class="table" id="userTable">
+				<tr>
+					<th>Name</th>
+					<th>Account</th>
+					<th>Password</th>
+					<th>Email</th>
+					<th>Role</th>
+					<th>Create Date</th>
+					<th>Update Date</th>
+				</tr>
+			</table>
+			<h2>Delete users</h2>
+			Account:<input id="deleteId"></input><br>
+			<button onclick="deleteUser()">Delete User!</button>		
+		</div>
+    	<!--/.Collapse row-->
+	</div>
+    <!--/.Collapse content-->
+
 
 	</body>
 </html>
