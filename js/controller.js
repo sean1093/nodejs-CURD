@@ -1,4 +1,4 @@
-  
+
 
 function sumbit(){
 	var name = document.getElementById("name").value;
