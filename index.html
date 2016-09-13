@@ -56,23 +56,27 @@
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Nodejs CURD</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" onclick="register();return false;">Register</a></li>
-            <li class="active"><a href="#" onclick="signin();return false;">Sign in<span class="sr-only">(current)</span></a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+      	<div class="container">
+        	<div class="navbar-header">
+	          	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+	          	</button>
+	          	<a class="navbar-brand" href="#">Nodejs CURD</a>
+        	</div>
+        	<div id="navbar" class="navbar-collapse collapse">
+	          	<ul class="nav navbar-nav navbar-right">
+		            <li>
+		            	<a href="#" onclick="register();return false;">Register</a>
+		            </li>
+		            <li class="active">
+		            	<a href="#" onclick="signin();return false;">Sign in<span class="sr-only">(current)</span></a>
+		            </li>
+	          	</ul>
+        	</div><!--/.nav-collapse -->
+      	</div>
     </nav>
 
 
@@ -101,59 +105,61 @@
 	        <input type="email" id="pwd" class="form-control" placeholder="Email address" required autofocus>
 	        <label for="email" class="sr-only">Password</label>
 	        <input type="password" id="email" class="form-control" placeholder="Password" required>
-	        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+	        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="sumbit()">Register</button>
 	    </form>
     </div> <!-- /container -->
 
 
 	<div class="container">
 		<div class="row">
-			<br>
+<!-- 			<br>
 			<h1>Users</h1>
 			<h2>Sign in!</h2>
 				Name:<input id="name"></input><br>
 				Account:<input id="id"></input><br>
 				Password:<input id="pwd"></input><br>
 				Email:<input id="email"></input><br>
-			<button onclick="sumbit()">Sumbit!</button>
+			<button onclick="sumbit()">Sumbit!</button> -->
 
 
-
-			<h1>Admin</h1>
-			<h2>Search users</h2>
-			<button onclick="query()">Query!</button>
-			<button onclick="deleteTable('userTable',1)">Clean!</button>
-			<table class="table" id="userTable">
-				<tr>
-					<th>Name</th>
-					<th>Account</th>
-					<th>Password</th>
-					<th>Email</th>
-					<th>Role</th>
-					<th>Create Date</th>
-					<th>Update Date</th>
-				</tr>
-			</table>
-			<h2>Delete users</h2>
-			Account:<input id="deleteId"></input><br>
-			<button onclick="deleteUser()">Delete User!</button>		
+			<div class="col-md-12" id="adminTable">
+				<h1>Admin</h1>
+				<h2>Search users</h2>
+				<button onclick="query()">Query!</button>
+				<button onclick="deleteTable('userTable',1)">Clean!</button>
+				<table class="table" id="userTable">
+					<tr>
+						<th>Name</th>
+						<th>Account</th>
+						<th>Password</th>
+						<th>Email</th>
+						<th>Role</th>
+						<th>Create Date</th>
+						<th>Update Date</th>
+					</tr>
+				</table>
+				<h2>Delete users</h2>
+				Account:<input id="deleteId"></input><br>
+				<button onclick="deleteUser()">Delete User!</button>				
+			</div>		
 		</div>
     	<!--/.Collapse row-->
 	</div>
     <!--/.Collapse content-->
+
 	<script type="text/javascript">
 		//init
-$("#signin").show();
-$("#register").hide();
-function signin(){
-	$("#signin").show();
-	$("#register").hide();
-} 
-
-function register(){
-	$("#signin").hide();
-	$("#register").show();	
-}   
+		$("#signin").show();
+		$("#register").hide();
+		$("#adminTable").hide();
+		function signin(){
+			$("#signin").show();
+			$("#register").hide();
+		} 
+		function register(){
+			$("#signin").hide();
+			$("#register").show();	
+		}   
 	</script>
 
 	</body>
