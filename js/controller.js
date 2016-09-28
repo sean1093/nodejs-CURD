@@ -1,4 +1,7 @@
-
+function signIn(){
+	var id = document.getElementById("sign_id").value;
+	queryById(id);
+}
 
 function sumbit(){
 	var name = document.getElementById("name").value;
@@ -50,18 +53,44 @@ function sumbit(){
 		// }
 	
 	}
-
-
 }
-
-function query(id) {
-	id = document.getElementById("id").value;
+function queryById(id) {
+	
 	console.log("id:"+id);
 	var data={};
 	data.id = id;
 	$.ajax({
 		type: 'get',
-		// data: data,
+		data: data,
+        contentType: 'application/json',
+        url: 'http://localhost:8000/query',						
+        success: function(data) {
+			console.log('success');
+        	console.log(data.length);
+        	console.log(data!==null);
+        	console.log(data!==undefined);
+        	if(data.length>0){
+        		if(data[0].role == 'a'){
+          			console.log("data[0].role: "+data[0].role);
+        			admin(true);      			
+        		}
+        		else{
+        			admin(false); 
+        		}
+        	}
+        	else{
+        		admin(false); 
+        	}
+        },
+        error: function (ajaxContext) {
+        	console.log(ajaxContext.responseText);
+    	}
+    });
+}
+
+function query(id) {
+	$.ajax({
+		type: 'get',
         contentType: 'application/json',
         url: 'http://localhost:8000/query',						
         success: function(data) {

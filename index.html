@@ -83,8 +83,8 @@
 	<div class="container">
       	<form class="form-signin" id="signin">
 	        <h2 class="form-signin-heading">Sign in</h2>
-	        <label for="inputEmail" class="sr-only">Email address</label>
-	        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+	        <label for="sign_id" class="sr-only">Account</label>
+	        <input id="sign_id" class="form-control" placeholder="Account" required autofocus>
 	        <label for="inputPassword" class="sr-only">Password</label>
 	        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 	        <div class="checkbox">
@@ -92,7 +92,7 @@
 	            	<input type="checkbox" value="remember-me"> Remember me
 	          	</label>
 	        </div>
-	        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="signIn()">Sign in</button>
 	    </form>
 
 	    <form class="form-signin" id="register">
@@ -101,10 +101,10 @@
 	        <input id="name" class="form-control" placeholder="Name" required autofocus>
 	        <label for="id" class="sr-only">Account</label>
 	        <input id="id" class="form-control" placeholder="Account" required>
-	        <label for="pwd" class="sr-only">Email address</label>
-	        <input type="email" id="pwd" class="form-control" placeholder="Email address" required autofocus>
-	        <label for="email" class="sr-only">Password</label>
-	        <input type="password" id="email" class="form-control" placeholder="Password" required>
+	        <label for="email" class="sr-only">Email address</label>
+	        <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+	        <label for="pwd" class="sr-only">Password</label>
+	        <input type="password" id="pwd" class="form-control" placeholder="Password" required>
 	        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="sumbit()">Register</button>
 	    </form>
     </div> <!-- /container -->
@@ -140,7 +140,10 @@
 				</table>
 				<h2>Delete users</h2>
 				Account:<input id="deleteId"></input><br>
-				<button onclick="deleteUser()">Delete User!</button>				
+				<button onclick="deleteUser()">Delete User!</button>
+				<h2>Query users</h2>
+				Account:<input id="queryById"></input><br>
+				<button onclick="queryById()">queryById!</button>				
 			</div>		
 		</div>
     	<!--/.Collapse row-->
@@ -159,7 +162,16 @@
 		function register(){
 			$("#signin").hide();
 			$("#register").show();	
-		}   
+		} 
+		function admin(flag){
+			if(flag){
+				$("#adminTable").show();
+			}
+			else{
+				$("#adminTable").hide();
+			}
+			
+		}  
 	</script>
 
 	</body>
