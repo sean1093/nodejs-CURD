@@ -154,7 +154,7 @@
 		//init
 		$("#signin").show();
 		$("#register").hide();
-		$("#adminTable").hide();
+		// $("#adminTable").hide();
 		function signin(){
 			$("#signin").show();
 			$("#register").hide();
@@ -164,6 +164,7 @@
 			$("#register").show();	
 		} 
 		function admin(flag){
+			console.log("flag: "+flag);
 			if(flag){
 				$("#adminTable").show();
 			}

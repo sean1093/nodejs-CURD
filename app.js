@@ -96,6 +96,7 @@ router.get('/query', function(req, res) {
           for(var idx in users){
             console.log(users[idx].name);
           }
+          console.log("send back");
           res.send(users); 
       } 
       else {
